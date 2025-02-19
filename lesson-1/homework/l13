@@ -1,0 +1,41 @@
+import datetime
+
+c_time = datetime.timedelta(2025, 12,28)
+print(c_time)
+
+a = datetime.datetime(2025, 3, 2)
+print(type(a))
+
+#a.year = 2024 #error
+print(a)
+formatted_date = datetime.datetime(2025, 2, 5, 14, 10, 22)
+print(formatted_date)
+new_fd = formatted_date.strftime('%Y-%m-%d')
+print(new_fd)
+
+date_string = '2025.02_07 15:15:43'
+parsed_date = datetime.datetime.strptime(date_string, '%Y.%m_%d %H:%M:%S')
+print(parsed_date)
+print(type(parsed_date))
+formatted_date = datetime.datetime.strftime(parsed_date, '%A, %B %d, %Y')
+print(formatted_date)
+from datetime import timezone, timedelta
+my_timezone = timezone(timedelta(hours=5, minutes=30))
+current_time = datetime.datetime.now(my_timezone)
+print(current_time)
+
+import re
+
+
+pattern = 'h'
+word = 'hello, hey'
+result = re.search(pattern, word)
+if result:
+    print(result.group())
+else:
+    print('No match')
+
+pattern = 'he'
+word = 'hello, team'
+result = re.match(pattern, word)
+print(result.group())
