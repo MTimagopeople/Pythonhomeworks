@@ -1,0 +1,44 @@
+current_date = datetime.date.today()
+print(current_date)
+
+a = datetime.date(2025, 3, 2)
+print(a)
+
+
+a = datetime.datetime(2025, 3, 2)
+print(type(a))
+
+#a.year = 2024 #error
+print(a)
+
+
+from datetime import date
+timestmp = date.fromtimestamp(1_600_000_000)
+print(timestmp)
+
+
+
+
+
+date_string = '2025.02_07 15:15:43'
+parsed_date = datetime.datetime.strptime(date_string, '%Y.%m_%d %H:%M:%S')
+print(parsed_date)
+print(type(parsed_date))
+formatted_date = datetime.datetime.strftime(parsed_date, '%A, %B %d, %Y')
+print(formatted_date)
+
+
+
+d = input('Please enter date and time in the following format: YYYY mm DD HH MM SS, for example 2025 01 27 17 21 39')
+
+
+a = datetime.datetime.strptime(d, '%Y %m %d %H %M %S') 
+c = datetime.datetime.strftime(a, '%H:%M:%S %p, %A, %B %d, %Y') 
+print(c)
+
+
+
+from datetime import timezone, timedelta
+my_timezone = timezone(timedelta(hours=5, minutes=30))
+current_time = datetime.datetime.now(my_timezone)
+print(current_time)
