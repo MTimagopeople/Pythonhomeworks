@@ -1,0 +1,78 @@
+class Vehicle:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+    def description(self):
+        return f'{self.make} {self.model}'
+    
+class Car(Vehicle):
+    def description(self):
+        return f'Car: {self.make} {self.model}'
+class Truck(Vehicle):
+    def description(self):
+        return f'Truck: {self.make} {self.model}'
+
+my_car = Car("Toyota", "Corolla")
+my_truck = Truck("Ford", "F150")
+
+print(my_car.description())
+print(my_truck.description())
+
+
+class Bird:
+    def fly(self):
+        return 'Flies high!'
+
+class Penguin(Bird):
+    def fly(self):
+        return 'I can\'t fly'
+sparrow = Bird()
+penguin = Penguin()
+print(sparrow.fly())
+print(penguin.fly())
+
+
+
+students=({'name':'Lily','age':20,'grade':98},
+{'name':'Rose','age':23,'grade':100},
+{'name':'Zahro','age':28,'grade':100},
+{'name':'Alice','age': 19,'grade':76},
+{'name':'Bob','age': 22,'grade':88})
+
+
+print(type(students))
+
+#print(students)
+
+def greater_than_or_equal(student_information):
+    return list(filter(lambda x: x['grade']>=95, student_information))
+
+result=greater_than_or_equal(students)
+print(result)
+
+from datetime import datetime
+dates = ["2020-05-20", "2022-02-12", "2024-01-08", "2026-06-15", "2023-03-23"]
+#print(dates)
+dates = [datetime.strptime(a, "%Y-%m-%d") for a in dates]
+#print(dates)
+a = datetime.now()
+print(a)
+
+result = list(filter(lambda x: x>a, dates))
+print(result)
+new_date = [i.strftime('%Y-%m-%d') for i in result]
+print(new_date)
+
+def ptri(x):
+    nrow = [1]
+    b = [0]
+    #print(nrow+b)
+    for a in range(max(x, 0)):
+        print(nrow)
+
+        nrow = [c+d for c, d in zip(nrow+b, b+nrow)]
+
+        #print(nrow)
+    #print(nrow)
+    return x >= 1
+ptri(5)
